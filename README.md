@@ -26,3 +26,8 @@ Reference images and layout inspiration are from **The Odin Project Curriculum**
 
 Project: *Landing Page*
 https://www.theodinproject.com/lessons/foundations-landing-page
+
+## Live Preview
+
+*Visit Site*
+https://devlou-rens.github.io/Anything-Landing-Page/
