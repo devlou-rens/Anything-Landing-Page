@@ -1,0 +1,231 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: 'Roboto', sans-serif;
+    min-height: 100vh; /* keep the footer at the bottom */
+}
+
+/* using group selector to make background color etc. same */
+.header-container, .hero-container{
+    background-color: #1F2937;
+    color: #f9faf8;
+}
+
+.header{
+    /* prevent logo and links from going too far, then centering them using margin */
+    max-width: 1000px;
+    margin: 0 auto; /* top and bottom 0, left and right auto center */
+    padding: 16px; /* dist from top of browser & logo/links */
+    /* separate the links and logo */
+    display: flex;
+    justify-content: space-between; /* logo left, links right */
+    align-items: center; /* vertical alignment */
+}
+
+.logo{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.logo img{
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+}
+
+.links{
+    list-style-type: none;
+    font-size: 20px;
+    display: flex;
+    gap: 16px;
+}
+
+.links a{
+    text-decoration: none;
+    color: #e5e7eb;
+}
+
+.main-content{
+    flex: 1; /* pushes the footer down to the bottom */
+}
+
+.hero-container{
+    padding: 40px 0 100px 0; /* I originally used height, however upon googling, I realised padding is used more in web dev because a fixed height is bad across layouts(eg. mobile). I know TOP specified it doesn't have to be responsive, but still */
+}
+
+.hero-content{
+    /* put them side by side, center them*/
+    display: flex;
+    align-items: center;
+    
+    /* keep everything lined up vertically, then center using margin: 0 auto; */
+    /* technically we could put display: flex; justify-content: center; in .hero-container, but the logo and hero wouldn't match up nicely. Both use same max width and margin.*/
+    max-width: 1000px;
+    margin: 0 auto; 
+    width: 100%; /* ensures content takes its maximum width */
+    gap: 48px /* gap between text,buttons and image */
+}
+
+.hero-left{
+    display: flex;
+    flex-direction: column;
+    gap: 8px; /*separate the hero stuff a tad bit */
+    flex: 1; /* splits the left stuff from the right within 1000px */
+    max-width: 500px; /* keep the subtext within bounds */
+    align-items: flex-start; /* shrinks the button to fit "Sign up", this seemingly only affects the button as default text-align: left & h1,p are block elements */
+}
+
+.hero-left h1{
+    color: #f9faf8; /*why did the requirements specify this? its already white */
+    font-size: 48px;
+    font-weight: 900;
+}
+
+.hero-left p{
+    color: #e5e7eb; 
+    font-size: 18px;
+}
+
+
+.btn{
+    padding: 8px 32px;      
+    border-radius: 8px; /* once again, rounded corners */
+    font-weight: bold;
+    font-size: 16px;
+    border: none; /* removes the grey border */
+}
+
+.hero-button{
+    background-color: #3882f6;
+    color: white;
+}
+
+.hero-image{
+    flex: 1; /* splits the left stuff from the right within 1000px; */
+}
+
+.hero-image img{
+    width: 100%;  
+    height: 50;
+    border-radius: 8px; /* make corners round */
+}
+
+.info-section{
+    display: flex;
+    flex-direction: column;
+    /* center the stuff */
+    align-items: center;
+    padding: 64px; /* vertical section space */
+    gap: 48px; /* separate title and cards/boxes */ 
+}
+
+.info-header{
+    font-size: 36px;
+    color: #1F2937;
+    font-weight: 900;
+}
+
+.card-container{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    max-width: 1000px; 
+    gap: 48px; /* separate cards and text more obviously */
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.box{
+    /* set width & height of box */
+    width: 200px;
+    height: 200px;
+
+    border: 4px solid #3882f6; 
+    border-radius: 15px;      
+    margin-bottom: 10px; /* separate box from text */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box img{
+    width: 80%; /* use 80 instead of 100, to keep the image within box, while working together with justify-content and align-items to center it */
+}
+
+.card-text{
+    text-align: center;
+    color: grey;
+    font-size: 18px;
+}
+
+.quote-section{
+    width: 100%;    
+    background-color: #e5e7eb;
+    display: flex;
+    justify-content: center;
+    padding: 100px; 
+}
+
+.quote-content{
+    max-width: 800px;
+}
+
+.quote-text{
+    font-size: 36px;
+    font-style: italic;
+    font-weight: 300;
+    color: #1f2937;
+}
+
+.quote-author{
+    font-size: 24px;
+    font-weight: bold;
+    text-align: right; /*separate name */
+    margin-top: 10px; /* separate name */
+}
+
+.cta-section{
+    display: flex;
+    justify-content: center;
+    padding: 100px;
+}
+
+.cta-banner {
+    background-color: #3882f6;
+    color: white;
+    padding: 48px 100px;/*box padding */
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between; /* text left, button right */
+    align-items: center;
+    width: 1000px; 
+}
+
+.cta-button {
+    border: 2px solid white; 
+    background-color: #3882f6;
+    color: white;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+.footer{
+    background-color: #1F2937;
+    color: #f9faf8;
+    /* center */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 32px 0;
+}
