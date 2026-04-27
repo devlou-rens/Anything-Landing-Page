@@ -4,27 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>About Us</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <title>Anything.co</title>
 </head>
 <body>
     <div class="header-container">
         <nav class="header">
-            <div class="logo"><img src="./assets/logo.png" alt="Logo">Anything.co</div>
+            <div class="logo"><img src="./assets/logo.png" alt="Logo"><em>Anything.co</em></div>
             <ul class="links">
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Product</a></li>
-                <li><a href="#">Log in</a></li>
+                <li><a href="#" data-target="home">Home</a></li>
+                <li><a href="#" data-target="gallery">Gallery</a></li>
+                <li><a href="#" data-target="products">Products</a></li>
+                <li><a href="#" data-target="community">Community</a></li>
+                <li><a href="#" data-target="contacts">Contacts</a></li>
             </ul>
         </nav>
     </div>
 
     <div class="main-content">
-        <div class="hero-container">
+
+        <!-- HOME -->
+        <div id="home" class="hero-container">
             <div class="hero-content">
                 <div class="hero-left"> 
                     <h1>Wear <em>Anything.</em> Be Everything.</h1>
-                    <p>Anything.co is a modern clothing brand built for people who want style, comfort, and confidence in what they wear every day.</p>
-                    <button class="btn hero-button">Sign up</button>
+                    <p><em>Anything.co is a modern clothing brand built for people who want style, comfort, and confidence in what they wear every day.</em></p>
                 </div>
                 <div class="hero-image">
                     <img src="./assets/banner.png" alt="Clothing banner">
@@ -32,11 +36,10 @@
             </div>
         </div>
 
-        <div class="info-section">
+        <!-- GALLERY -->
+        <div id="gallery" class="info-section">
             <h2 class="info-header">Latest Drops from Anything.co</h2>
-
             <div class="card-container">
-
                 <div class="card">
                     <div class="box">
                         <img src="./assets/clothing1.png" alt="Angel Graphic Tee">
@@ -46,7 +49,6 @@
                         Designed for people who want bold streetwear that stands out.
                     </p>
                 </div>
-
                 <div class="card">
                     <div class="box">
                         <img src="./assets/clothing2.png" alt="Hustler Print Tee">
@@ -56,7 +58,6 @@
                         Built for those who work hard, stay focused, and move differently.
                     </p>
                 </div>
-
                 <div class="card">
                     <div class="box">
                         <img src="./assets/clothing3.png" alt="Self Growth Graphic Tee">
@@ -66,41 +67,67 @@
                         A reminder to grow, explore, and define your own path.
                     </p>
                 </div>
-
                 <div class="card">
                     <div class="box">
                         <img src="./assets/clothing4.png" alt="Lightning Insight Tee">
                     </div>
-                    <p class="card-text">The <strong>Lightning Insight Tee</strong> fuses classical beauty with raw electric energy. 
-                    A bold symbol of sudden clarity, inner power, and breaking through limitations.</p>
+                    <p class="card-text">
+                        The <strong>Lightning Insight Tee</strong> fuses classical beauty with raw electric energy. 
+                        A bold symbol of sudden clarity, inner power, and breaking through limitations.
+                    </p>
                 </div>
-            </div> 
-        </div> 
-
-        <div class="quote-section">
-            <div class="quote-content">
-                <p class="quote-text">Style is a way to say who you are without having to speak.</p>
-                <p class="quote-author">Rachel Zoe, Fashion Designer</p>
             </div>
-        </div> 
+        </div>
 
-        <div class="cta-section">
+        <!-- PRODUCTS -->
+        <section id="products" class="cta-section">
             <div class="cta-banner">
-                <div class="cta-text">
-                    <h3>Start your style journey with Anything.co</h3>
-                    <p>Discover clothing designed for everyday confidence and modern lifestyle.</p>
+                <div class="cta-collage">
+                    <img src="./assets/clothing1.png" alt="Angel Graphic Tee"     class="col-img col-tl">
+                    <img src="./assets/clothing2.png" alt="Hustler Print Tee"     class="col-img col-tr">
+                    <img src="./assets/clothing3.png" alt="Self Growth Tee"       class="col-img col-bl">
+                    <img src="./assets/clothing4.png" alt="Lightning Insight Tee" class="col-img col-br">
                 </div>
-                <button class="btn cta-button">Shop Now</button>
+                <div class="cta-copy">
+                    <h2 class="cta-heading">Get yours and be <em>Confident.</em></h2>
+                    <blockquote class="cta-quote">
+                        <p>Style is a way to say who you are without having to speak.</p>
+                        <cite>– Rachel Zoe, Fashion Designer</cite>
+                    </blockquote>
+                    <a href="#" class="cta-btn">Buy now</a>
+                </div>
             </div>
-        </div> 
-    </div> 
+        </section>
+
+        <!-- COMMUNITY -->
+        <section id="community" class="community-section">
+            <div class="community-banner">
+                <p class="community-title">Join our Community</p>
+                <p class="community-subtitle">anythingHustlerGroup</p>
+                <a href="#" class="btn hero-button community-btn">Join Now</a>
+            </div>
+        </section>
+
+        <!-- CONTACTS -->
+        <section id="contacts" class="contact-section">
+            <p class="contact-title">Contact Us</p>
+            <div class="contact-icons">
+                <a href="#" class="contact-icon"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="contact-icon"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="contact-icon"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="contact-icon"><i class="fab fa-whatsapp"></i></a>
+                <a href="#" class="contact-icon"><i class="fab fa-facebook-messenger"></i></a>
+                <a href="#" class="contact-icon"><i class="fab fa-tiktok"></i></a>
+                <a href="#" class="contact-icon"><i class="fas fa-globe"></i></a>
+            </div>
+        </section>
+
+    </div>
 
     <div class="footer">
         <p>Copyright © Anything.co Clothing</p>
     </div>
-</body>
-</html>
 
-
+    <script src="./script.js"></script>
 </body>
 </html>
