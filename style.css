@@ -87,33 +87,29 @@ body{
 }
 
 .hero-container{
-    padding: 40px 0 100px 0; /* I originally used height, however upon googling, I realised padding is used more in web dev because a fixed height is bad across layouts(eg. mobile). I know TOP specified it doesn't have to be responsive, but still */
+    padding: 40px 0 100px 0;
 }
 
 .hero-content{
-    /* put them side by side, center them*/
     display: flex;
     align-items: center;
-    
-    /* keep everything lined up vertically, then center using margin: 0 auto; */
-    /* technically we could put display: flex; justify-content: center; in .hero-container, but the logo and hero wouldn't match up nicely. Both use same max width and margin.*/
     max-width: 1000px;
     margin: 0 auto; 
-    width: 100%; /* ensures content takes its maximum width */
-    gap: 48px /* gap between text,buttons and image */
+    width: 100%;
+    gap: 48px
 }
 
 .hero-left{
     display: flex;
     flex-direction: column;
-    gap: 8px; /*separate the hero stuff a tad bit */
-    flex: 1; /* splits the left stuff from the right within 1000px */
-    max-width: 500px; /* keep the subtext within bounds */
-    align-items: flex-start; /* shrinks the button to fit "Sign up", this seemingly only affects the button as default text-align: left & h1,p are block elements */
+    gap: 8px;
+    flex: 1;
+    max-width: 500px;
+    align-items: flex-start;
 }
 
 .hero-left h1{
-    color: #f9faf8; /*why did the requirements specify this? its already white */
+    color: #f9faf8;
     font-size: 48px;
     font-weight: 900;
 }
@@ -126,10 +122,10 @@ body{
 
 .btn{
     padding: 8px 32px;      
-    border-radius: 8px; /* once again, rounded corners */
+    border-radius: 8px;
     font-weight: bold;
     font-size: 16px;
-    border: none; /* removes the grey border */
+    border: none;
 }
 
 .hero-button{
@@ -138,23 +134,22 @@ body{
 }
 
 .hero-image{
-    flex: 1; /* splits the left stuff from the right within 1000px; */
+    flex: 1;
 }
 
 .hero-image img{
     width: 100%;  
     height: 50;
-    border-radius: 25px; /* make corners round */
+    border-radius: 25px;
 }
 
 .info-section{
     background-color: #1F2937;
     display: flex;
     flex-direction: column;
-    /* center the stuff */
     align-items: center;
-    padding: 64px; /* vertical section space */
-    gap: 48px; /* separate title and cards/boxes */ 
+    padding: 64px;
+    gap: 48px;
 }
 
 .info-header{
@@ -168,7 +163,7 @@ body{
     justify-content: center;
     align-items: flex-start;
     max-width: 1000px; 
-    gap: 48px; /* separate cards and text more obviously */
+    gap: 48px;
 }
 
 .card{
@@ -178,21 +173,19 @@ body{
 }
 
 .box{
-    /* set width & height of box */
     width: 200px;
     height: 200px;
-
     background-color: #ffffff;
     border-color: #ffffff;
     border-radius: 15px;      
-    margin-bottom: 10px; /* separate box from text */
+    margin-bottom: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .box img{
-    width: 80%; /* use 80 instead of 100, to keep the image within box, while working together with justify-content and align-items to center it */
+    width: 80%;
 }
 
 .card-text{
@@ -223,8 +216,8 @@ body{
 .quote-author{
     font-size: 24px;
     font-weight: bold;
-    text-align: right; /*separate name */
-    margin-top: 10px; /* separate name */
+    text-align: right;
+    margin-top: 10px;
 }
 
 /* Wrap cta-section in a centering container */
@@ -232,12 +225,13 @@ body{
     width: 100%;
     display: flex;
     justify-content: center;
+    align-items: center;
     padding: 64px 16px;
-    background-color: #1F2937;  /* match the dark background */
+    background-color: #1F2937;
 }
 
 .cta-banner {
-    background-color: #1F2937;  /* slightly lighter so it's visible against the section bg */
+    background-color: #1F2937;
     border-radius: 16px;
     display: flex;
     align-items: center;
@@ -249,7 +243,6 @@ body{
     width: 100%;
 }
  
-/* subtle top-border glow */
 .cta-banner::before {
     content: '';
     position: absolute;
@@ -277,7 +270,6 @@ body{
  
 .col-img:hover { transform: scale(1.05) rotate(2deg); z-index: 10; }
  
-/* 2×2 grid with slight overlap */
 .col-tl { top:  0;   left:  0;   transform: rotate(-3deg); }
 .col-tr { top:  0;   right: 0;   transform: rotate( 3deg); }
 .col-bl { bottom: 0; left:  0;   transform: rotate( 2deg); }
@@ -341,7 +333,6 @@ body{
     padding: 10px 28px;
     border-radius: 999px;
     letter-spacing: 0.4px;
-    
 }
  
 .cta-btn:hover {
@@ -353,10 +344,10 @@ body{
 .cta-btn:active {
     transform: translateY(0);
 }
+
 .footer{
     background-color: #1F2937;
     color: #f9faf8;
-    /* center */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -402,7 +393,6 @@ body{
     background-color: #3882f6;
 }
 
-
 .community-section {
     display: flex;
     justify-content: center;
@@ -441,7 +431,46 @@ body{
     text-decoration: none;
 }
 
+/* ============================================================
+   FULL-PAGE SECTIONS — Products, Community, Contacts each
+   fill the entire viewport so they feel like distinct pages
+   ============================================================ */
 
+#products.cta-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 16px;
+}
+
+#community.community-section {
+    min-height: 100vh;
+    align-items: center;
+    padding: 80px 16px;
+}
+
+#contacts.contact-section {
+    min-height: 100vh;
+    justify-content: center;
+    padding: 80px 16px;
+    gap: 32px;
+}
+
+#contacts .contact-title {
+    font-size: 32px;
+    letter-spacing: 1px;
+}
+
+#contacts .contact-icons {
+    gap: 24px;
+}
+
+#contacts .contact-icon {
+    width: 56px;
+    height: 56px;
+    font-size: 22px;
+}
 
 /* ============================================================
    SCROLL ANIMATIONS — elements start hidden and animate in
@@ -568,13 +597,24 @@ body{
     }
 
     .community-title {
-        font-size: 36px;
+        font-size: 40px;
     }
 
     /* CONTACTS */
+    #contacts .contact-title {
+        font-size: 24px;
+    }
+
+    #contacts .contact-icon {
+        width: 48px;
+        height: 48px;
+        font-size: 18px;
+    }
+
     .contact-icons {
         flex-wrap: wrap;
         justify-content: center;
+        gap: 16px;
     }
 }
 
@@ -622,7 +662,7 @@ body{
     }
 
     .community-title {
-        font-size: 28px;
+        font-size: 32px;
     }
 
     .cta-heading {
