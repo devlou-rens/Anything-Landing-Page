@@ -1,14 +1,6 @@
-document.querySelectorAll('.links a').forEach(link => {
-    link.addEventListener('click', function(e) {
-        e.preventDefault();
-        const target = this.getAttribute('data-target');
-        if (target === 'home') {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        } else {
-            document.getElementById(target).scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-    });
-});
+// ============================================================
+// SCROLL REVEAL — re-triggers every time element enters view
+// ============================================================
 
 (function () {
     const targets = [
@@ -22,59 +14,96 @@ document.querySelectorAll('.links a').forEach(link => {
         { sel: '.contact-title',    cls: ''            },
         { sel: '.contact-icons',    cls: 'scale-in'    },
     ];
- 
-    // Attach base classes once
+
     targets.forEach(({ sel, cls }) => {
         document.querySelectorAll(sel).forEach(el => {
             el.classList.add('reveal');
             if (cls) el.classList.add(cls);
         });
     });
- 
-    // Helper: reset then re-trigger an element's animation
+
     function reAnimate(el) {
         el.classList.remove('visible');
-        // force reflow so the browser registers the removal before re-adding
         void el.offsetWidth;
         el.classList.add('visible');
     }
- 
-    // IntersectionObserver — NO unobserve, so it fires every entry/exit
+
     const observer = new IntersectionObserver(
         (entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
                 } else {
-                    // reset when element scrolls out so it can re-animate next time
                     entry.target.classList.remove('visible');
                 }
             });
         },
         { threshold: 0.15 }
     );
- 
+
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
- 
-    // Nav button clicks — re-animate all reveals inside the target section
-    document.querySelectorAll('.links a').forEach(link => {
-        link.addEventListener('click', function () {
+
+    // ============================================================
+    // HAMBURGER — slide-in from right drawer
+    // ============================================================
+    const hamburger = document.querySelector('.hamburger');
+    const drawer    = document.querySelector('.nav-drawer');
+    const overlay   = document.querySelector('.nav-overlay');
+
+    function openMenu() {
+        if (!hamburger) return;
+        hamburger.classList.add('open');
+        if (drawer)  drawer.classList.add('open');
+        if (overlay) overlay.classList.add('open');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeMenu() {
+        if (!hamburger) return;
+        hamburger.classList.remove('open');
+        if (drawer)  drawer.classList.remove('open');
+        if (overlay) overlay.classList.remove('open');
+        document.body.style.overflow = '';
+    }
+
+    if (hamburger) {
+        hamburger.addEventListener('click', (e) => {
+            e.stopPropagation();
+            hamburger.classList.contains('open') ? closeMenu() : openMenu();
+        });
+    }
+
+    if (overlay) {
+        overlay.addEventListener('click', closeMenu);
+    }
+
+    // Nav link clicks — close drawer then scroll + re-animate
+    document.querySelectorAll('.nav-drawer a, .links a').forEach(link => {
+        link.addEventListener('click', function (e) {
+            e.preventDefault();
+            closeMenu();
+
             const targetId = this.getAttribute('data-target');
             if (!targetId) return;
- 
-            // small delay so the scroll has started before we fire animations
+
             setTimeout(() => {
-                const section = targetId === 'home'
-                    ? document.querySelector('.hero-container')
-                    : document.getElementById(targetId);
- 
-                if (!section) return;
- 
-                section.querySelectorAll('.reveal').forEach((el, i) => {
-                    // stagger each child slightly
-                    setTimeout(() => reAnimate(el), i * 80);
-                });
-            }, 120);
+                if (targetId === 'home') {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                } else {
+                    const section = document.getElementById(targetId);
+                    if (section) section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+
+                setTimeout(() => {
+                    const section = targetId === 'home'
+                        ? document.querySelector('.hero-container')
+                        : document.getElementById(targetId);
+                    if (!section) return;
+                    section.querySelectorAll('.reveal').forEach((el, i) => {
+                        setTimeout(() => reAnimate(el), i * 80);
+                    });
+                }, 300);
+            }, 80);
         });
     });
 })();
